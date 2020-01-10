@@ -16,6 +16,7 @@
 		E2F336F623C7850D000983FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F336F423C7850D000983FF /* LaunchScreen.storyboard */; };
 		E2F3370123C7850D000983FF /* CoreDataPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3370023C7850D000983FF /* CoreDataPracticeTests.swift */; };
 		E2F3370C23C7850D000983FF /* CoreDataPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3370B23C7850D000983FF /* CoreDataPracticeUITests.swift */; };
+		E2F3371A23C7873F000983FF /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3371923C7873F000983FF /* MyTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E2F3370723C7850D000983FF /* CoreDataPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F3370B23C7850D000983FF /* CoreDataPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPracticeUITests.swift; sourceTree = "<group>"; };
 		E2F3370D23C7850D000983FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F3371923C7873F000983FF /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				E2F336F423C7850D000983FF /* LaunchScreen.storyboard */,
 				E2F336F723C7850D000983FF /* Info.plist */,
 				E2F336EF23C7850C000983FF /* CoreDataPractice.xcdatamodeld */,
+				E2F3371923C7873F000983FF /* MyTableViewController.swift */,
 			);
 			path = CoreDataPractice;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				E2F336EB23C7850C000983FF /* ViewController.swift in Sources */,
 				E2F336E723C7850C000983FF /* AppDelegate.swift in Sources */,
 				E2F336E923C7850C000983FF /* SceneDelegate.swift in Sources */,
+				E2F3371A23C7873F000983FF /* MyTableViewController.swift in Sources */,
 				E2F336F123C7850C000983FF /* CoreDataPractice.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
