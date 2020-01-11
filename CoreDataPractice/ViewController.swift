@@ -12,7 +12,7 @@ import CoreData
 class ViewController: UIViewController {
     
     // Step 2 create 1 array
-    var People:[NSManagedObject] = []
+    var people: [NSManagedObject] = []
     
     
     //Step 1 : Outlet and Action
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         do {
             
             try managecontext.save()
-            People.append(user)
+            people.append(user)
             print("Data Inserted")
             
             

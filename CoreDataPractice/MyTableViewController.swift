@@ -11,12 +11,15 @@ import CoreData
 
 class MyTableViewController: UITableViewController {
     
+    
     // Step 1
-    var managecontextobject = NSManagedObjectContext()
+    var managecontextobject:NSManagedObjectContext!
     
-    var manageobject = NSManagedObject()
+    var manageobject:NSManagedObject!
     
-    var list:[NSManagedObject] = []
+    var list:[NSManagedObject]!
+    
+    //var people:[NSManagedObject] = []
     
 
     override func viewDidLoad() {
@@ -26,6 +29,10 @@ class MyTableViewController: UITableViewController {
         let appDel = UIApplication.shared.delegate as! AppDelegate
         
         self.managecontextobject = appDel.persistentContainer.viewContext
+        
+        
+        //You have to call listdata after fetching
+        listdata()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,7 +50,7 @@ class MyTableViewController: UITableViewController {
                 self.list = try self.managecontextobject.fetch(fetchreq) as! [NSManagedObject]
                 for item in self.list
                 {
-                    print("okay")
+                    print("Data in tableview")
                 }
             } catch  {
                 print("error")
@@ -51,6 +58,42 @@ class MyTableViewController: UITableViewController {
             
             tableView.reloadData()
         }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//     if editingStyle == .delete {
+//       print("Deleted")
+//
+//       self.list.remove(at: indexPath.row)
+//       self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//        managecontextobject.delete(list[indexPath.row])
+//     }
+//   }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle==UITableViewCell.EditingStyle.delete
+        {
+            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context:NSManagedObjectContext = appDel.persistentContainer.viewContext
+            context.delete(self.list[indexPath.row])
+            
+            do
+            {
+                try context.save()
+                self.list.removeAll()
+                self.listdata()
+                self.tableView.reloadData()
+            }
+            catch
+            {
+              print("error")
+            }
+            
+        }
+        else{
+            print("Something wrong")
+        }
+             
+    }
     
     // MARK: - Table view data source
 
@@ -67,10 +110,9 @@ class MyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel?.text = "\(self.list[indexPath.row].value(forKey: "name"))"
-        cell.detailTextLabel?.text = "\(self.list[indexPath.row].value(forKey: "branch"))"
+        cell.textLabel?.text = "\(self.list[indexPath.row].value(forKey: "name")!)"
+        cell.detailTextLabel?.text = "\(self.list[indexPath.row].value(forKey: "branch")!)"
         
-        cell.textLabel?.text = "\(self.list[indexPath.row].value(forKey: "name"))"
 
         return cell
     }
